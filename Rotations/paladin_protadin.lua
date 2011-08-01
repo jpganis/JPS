@@ -11,6 +11,15 @@ function paladin_protadin(self)
 		return "Rebuke"
 	end
 
+        --Check for Righteous Fury and Seal
+        if not ub("player","Righteous Fury")
+                return "Righteous Fury"
+        end
+        
+        if not ub("player","Seal of Truth")
+                return "Seal of Truth"
+        end
+
 	-- Check we're in melee range, if not pull with AS.
 	if not IsSpellInRange("Crusader Strike","target") == 1 then
 		return "Avenger's Shield"
@@ -31,15 +40,15 @@ function paladin_protadin(self)
 
 	-- Offense, Single-Target
 	if not jps.MultiTarget then
-		if cd("Righteous Fury") == 0 and UnitHealthMax("target") > 100000 then
-			spell = "Righteous Fury"
+		if cd("Avenging Wrath") == 0 and UnitHealthMax("target") > 100000 and not ub("player","Avenging Wrath") then
+			spell = "Avenging Wrath"
                 elseif cd("Shield of the Righteous") == 0 and hPower == 3 then
 			spell = "Shield of the Righteous"
 		elseif cd("Crusader Strike") == 0 then
 			spell = "Crusader Strike"
 		elseif cd("Avenger's Shield") == 0 then
 			spell = "Avenger's Shield"
-		elseif cd("Hammer of Wrath") == 0 and (targetHealthPercent < 20 or ub("player","Righteous Fury")) then
+		elseif cd("Hammer of Wrath") == 0 and (targetHealthPercent < 20 or ub("player","Avenging Wrath")) then
 			spell = "Hammer of Wrath"
 		elseif cd("Judgement") == 0 then
 			spell = "Judgement"
@@ -55,7 +64,7 @@ function paladin_protadin(self)
 			spell = "Avenger's Shield"
                 elseif cd("Consecrate") == 0 and myManaPercent > 45 then
 			spell = "Consecrate"
-		elseif cd("Hammer of Wrath") == 0 and (targetHealthPercent < 20 or ub("player","Righteous Fury")) then
+		elseif cd("Hammer of Wrath") == 0 and (targetHealthPercent < 20 or ub("player","Avenging Wrath")) then
 			spell = "Hammer of Wrath"
 		elseif cd("Judgement") == 0 then
 			spell = "Judgement"
