@@ -55,7 +55,7 @@ function paladin_protadin(self)
 			spell = "Avenger's Shield"
                 elseif cd("Consecrate") == 0 and myManaPercent > 45 then
 			spell = "Consecrate"
-		elseif cd("Hammer of Wrath") == 0 then
+		elseif cd("Hammer of Wrath") == 0 and (targetHealthPercent < 20 or ub("player","Righteous Fury")) then
 			spell = "Hammer of Wrath"
 		elseif cd("Judgement") == 0 then
 			spell = "Judgement"
