@@ -12,11 +12,11 @@ function paladin_protadin(self)
 	end
 
         --Check for Righteous Fury and Seal
-        if not ub("player","Righteous Fury")
+        if not ub("player","Righteous Fury") then
                 return "Righteous Fury"
         end
         
-        if not ub("player","Seal of Truth")
+        if not ub("player","Seal of Truth") then
                 return "Seal of Truth"
         end
 
