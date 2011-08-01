@@ -21,7 +21,7 @@ function paladin_protadin(self)
         end
 
 	-- Check we're in melee range, if not pull with AS.
-	if not IsSpellInRange("Crusader Strike","target") ~= 1 then
+	if IsSpellInRange("Crusader Strike","target") ~= 1 then
 		return "Avenger's Shield"
 	end
 
